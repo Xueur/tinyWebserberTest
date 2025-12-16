@@ -23,7 +23,7 @@ class EchoServer {
         TcpServer server_;
 };
 
-EchoServer::EchoServer(EventLoop *loop, const char *ip, const int port) :  server_(ip, port) {
+EchoServer::EchoServer(EventLoop *loop, const char *ip, const int port) :  server_(loop, ip, port) {
     server_.setConnectCallback(std::bind(&EchoServer::onConnection, this, std::placeholders::_1));
     server_.setMessageCallback(std::bind(&EchoServer::onMessage, this, std::placeholders::_1));
 }
@@ -52,7 +52,7 @@ void EchoServer::onMessage(const std::shared_ptr<TcpConnection> & conn){
     {
         std::cout << CurrentThread::tid() << " Message from client " << conn->getRecvBuf()->c_str() << std::endl;
         conn->Send(conn->getRecvBuf()->c_str());
-        conn->handleClose();
+        conn->getRecvBuf()->clear();
     }
 }
 

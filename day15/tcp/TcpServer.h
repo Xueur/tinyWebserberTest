@@ -11,7 +11,7 @@ class ThreadPool;
 class TcpServer {
 public:
     DISALLOW_COPY_AND_MOVE(TcpServer);
-    TcpServer(const char *ip, const int port);
+    TcpServer(EventLoop* loop,const char * ip, const int port);
     ~TcpServer();
     void Start();
     void newConnection(int);

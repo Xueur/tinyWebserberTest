@@ -5,9 +5,15 @@
 #include <unistd.h>
 #include <assert.h>
 #include <vector>
+#include <sys/eventfd.h>
 
 EventLoop::EventLoop(): quit(false), ep(std::make_unique<Epoll>()) {
-    
+    wakeup_fd = ::eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
+    wakeup_ch = std::make_unique<Channel>(this, wakeup_fd);
+    calling_functors = false;
+
+    wakeup_ch->setReadCallback(std::bind(&EventLoop::HandleRead, this));
+    wakeup_ch->enableReading();
 }
 
 EventLoop::~EventLoop() {
@@ -15,11 +21,13 @@ EventLoop::~EventLoop() {
 }
 
 void EventLoop::loop() {
+    tid = CurrentThread::tid();
     while (!quit) {
         std::vector<Channel*>chs = ep->poll();
         for (auto ch : chs) {
             ch->handleEvent();
         }
+        DoToDoList();
     }
 }
 

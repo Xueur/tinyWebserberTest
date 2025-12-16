@@ -11,12 +11,10 @@
 #include <assert.h>
 
 
-TcpServer::TcpServer(const char * ip, const int port): next_connid(1){
-    mainReactor= std::make_unique<EventLoop>();
+TcpServer::TcpServer(EventLoop* loop ,const char * ip, const int port): mainReactor(loop), next_connid(1) {
     acceptor = std::make_unique<Acceptor>(mainReactor.get(), ip, port);
     std::function<void(int)> cb = std::bind(&TcpServer::newConnection, this, std::placeholders::_1);
     acceptor->setNewConnectionCallback(cb);
-
     unsigned int size = 6;
     thp = std::make_unique<ThreadPool>(size);
     for (size_t i = 0; i < size; ++i){

@@ -21,7 +21,7 @@ TcpConnection::TcpConnection(EventLoop* _loop, int _connfd, int _connid)
 }
 
 TcpConnection::~TcpConnection(){
-    ::close(connfd);
+    printf("TcpConnection::~TcpConnection() called\n");
 }
 
 void TcpConnection::ConnectionEstablished(){

@@ -15,10 +15,10 @@ private:
     std::mutex mtx;
 
     int wakeup_fd;
-    std::unique_ptr<Channel> wakeup_channel;
-
+    std::unique_ptr<Channel> wakeup_ch;
     bool calling_functors;
     pid_t tid;
+    
 public:
     EventLoop();
     ~EventLoop();
