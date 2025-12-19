@@ -1,0 +1,3 @@
+/home/xzx/30DaysWebserver/day19/build/CMakeFiles/webserver.dir
+/home/xzx/30DaysWebserver/day19/build/CMakeFiles/edit_cache.dir
+/home/xzx/30DaysWebserver/day19/build/CMakeFiles/rebuild_cache.dir
