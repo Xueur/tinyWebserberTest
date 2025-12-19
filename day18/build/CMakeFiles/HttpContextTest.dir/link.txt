@@ -1,0 +1,1 @@
+g++ -g -Wall -Werror -std=c++17 CMakeFiles/HttpContextTest.dir/test/HttpContextTest.cpp.o CMakeFiles/HttpContextTest.dir/http/HttpContext.cpp.o CMakeFiles/HttpContextTest.dir/http/HttpRequest.cpp.o -o test/HttpContextTest 

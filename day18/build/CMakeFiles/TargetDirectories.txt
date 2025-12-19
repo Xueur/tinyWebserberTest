@@ -1,0 +1,4 @@
+/home/xzx/30DaysWebserver/day18/build/CMakeFiles/server.dir
+/home/xzx/30DaysWebserver/day18/build/CMakeFiles/HttpContextTest.dir
+/home/xzx/30DaysWebserver/day18/build/CMakeFiles/edit_cache.dir
+/home/xzx/30DaysWebserver/day18/build/CMakeFiles/rebuild_cache.dir
