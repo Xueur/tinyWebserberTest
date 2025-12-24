@@ -1,0 +1,1 @@
+g++ -g -Wall -Werror -std=c++17 CMakeFiles/testLog.dir/test/LogTest.cpp.o CMakeFiles/testLog.dir/log/LogStream.cpp.o -o test/testLog 
