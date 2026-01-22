@@ -1,0 +1,3 @@
+/home/xzx/tinyWebserberTest/day22/build/CMakeFiles/webserver.dir
+/home/xzx/tinyWebserberTest/day22/build/CMakeFiles/edit_cache.dir
+/home/xzx/tinyWebserberTest/day22/build/CMakeFiles/rebuild_cache.dir
